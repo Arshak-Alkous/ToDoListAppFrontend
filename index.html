@@ -4,9 +4,46 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css"> 
-        <title>ToDoListApp Page</title>
+        <title>ToDoList App</title>
     </head>
     <body id="body">
+        <div class="container">
+            <div class="sidebar">
+                <h2>To Do List</h2>
+                <div class="menu-item" onclick="toggleMenu('projects')">Projects <span>▶</span></div>
+                <div class="submenu" id="projects">
+                    <p>Project 1</p>
+                    <p>Project 2</p>
+                </div>
+                <div class="menu-item" id="menu-tags" onclick="toggleMenu('tags')">Tags <button class="add-button" title="Add New Tag">+</button> <span>▶</span></div>
+                <div class="submenu" id="tags">
+                    
+                    <p>Tag 1 <button>✏️</button> <button>❌</button></p>
+                    <p>Tag 2 <button>✏️</button> <button>❌</button></p>
+                </div>
+            </div>
+            <div class="content">
+                <div class="tabs">
+                    <div class="tab" onclick="showTab('home')">Home</div>
+                    <div class="tab" onclick="showTab('project')">Project</div>
+                    <div class="tab" onclick="showTab('task')">Task</div>
+                    <div class="tab" onclick="showTab('tags')">Tags</div>
+                </div>
+                <div id="home" class="tab-content active-tab">
+                    <h1>Welcome to ToDoList App</h1>
+                    <button class="add-button">+ Add New Project</button>
+                </div>
+                <div id="project" class="tab-content">
+                    <h2>Project Content</h2>
+                </div>
+                <div id="task" class="tab-content">
+                    <h2>Task Content</h2>
+                </div>
+                <div id="tags" class="tab-content">
+                    <h2>Tags Content</h2>
+                </div>
+            </div>
+        </div>
         <div>
             <button onclick="printProjectsToTable()" value="Get all Project">Get all Project</button>
         </div>
