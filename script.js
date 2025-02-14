@@ -43,6 +43,22 @@ function toggleMenu(id) {
        
     }
 }
+function addTag(){
+    //alert("update tag th Id: "+id);
+    let newName= prompt("Enter new tag name:");
+    console.log(newName);
+    if(newName){
+        const newTag={name:newName};
+        fetch("https://localhost:7028/Tag",{
+            method: "POST",
+            headers:{"Content-Type":"application/json"},
+            body : JSON.stringify(newTag),
+        })
+        .then (()=> console.log("Adding new tag successfully"))
+        .then(()=> location.reload())
+        .catch(error=> console.error("error is:",error ));
+    }
+}
 function editTag(id){
     alert("update tag th Id: "+id);
     let newName= prompt("Enter new tag name:");
@@ -61,6 +77,13 @@ function editTag(id){
 }
 function deleteTag(id){
     alert("Delete tag with Id: "+id);
+    fetch(`https://localhost:7028/Tag/${id}`,{
+        method: "DELETE",
+    })
+    .then (()=> console.log("deleted tag successfully"))
+    .then(()=> location.reload())
+    .catch(error=> console.error("error is:",error ));
+
 }
 function showTab(tabId) {
     var contents = document.querySelectorAll(".tab-content");
